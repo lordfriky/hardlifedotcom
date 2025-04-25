@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hello hard life!</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Helvetica, Arial, sans-serif;
+      background-color: #111;
+      color: #f5f5f5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 2rem;
+      text-align: center;
+    }
+    .container {
+      max-width: 700px;
+      background: #222;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+    }
+    a {
+      color: #4fc3f7;
+      word-break: break-word;
+      text-decoration: none;
+    }
+    .main-link {
+      font-size: 1.5rem;
+      font-weight: bold;
+      display: inline-block;
+      margin-top: 0.5rem;
+    }
+    hr {
+      margin: 2rem auto 2rem;
+      border: none;
+      border-top: 1px solid #444;
+      border-bottom: 1px solid #444;
+      width: 50%;
+    }
+    .timer {
+      margin-top: 1.5rem;
+      font-size: 1.2rem;
+      color: #aaa;
+    }
+    .italic {
+      font-style: italic;
+    }
+    @media (max-width: 600px) {
+      body {
+        padding: 1rem;
+      }
+      .container {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Hello hard life!</h1>
+    <p>
+      I'm a developer who has been a fan of you since 2018 and I'm now excited about your new name and your new album.
+    </p>
+    <p>
+      As soon as I saw that this domain hadn't been registered and was being used in your promotional material I decided to buy it. I have no bad intentions with it, so I kindly ask you to contact me at <a href="mailto:daniel@lordfriky.dev">daniel@lordfriky.dev</a> so I can transfer it to you.
+    </p>
+
+    <hr>
+
+    <p>
+      If you're not part of the band or their team and want to access their official website, you can do so at the address below:
+    </p>
+    <p>
+      <a href="https://www.hardlifemusic.co.uk" target="_blank" class="main-link">https://www.hardlifemusic.co.uk</a>
+    </p>
+    <div class="timer" id="timer">
+      You will also be redirected there in <span id="countdown">15</span> seconds...
+    </div>
+  </div>
+
+  <script>
+    let seconds = 15;
+    const countdownEl = document.getElementById("countdown");
+    const timerEl = document.getElementById("timer");
+
+    const interval = setInterval(() => {
+      seconds--;
+      if (seconds <= 1) {
+        timerEl.innerHTML = `<span class="italic">See you later maybe never...</span>`;
+      } else {
+        countdownEl.textContent = seconds;
+      }
+
+      if (seconds <= 0) {
+        clearInterval(interval);
+        window.location.href = "https://www.hardlifemusic.co.uk";
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
